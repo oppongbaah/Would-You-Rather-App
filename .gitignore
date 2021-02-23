@@ -3,7 +3,6 @@
 *.bin
 **/node_modules
 .env
-Front.js
 
 # Compiled Object files
 *.slo
