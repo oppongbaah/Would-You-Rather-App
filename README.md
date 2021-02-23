@@ -1,4 +1,5 @@
 # Would-You-Rather-App
+---
 This application contains two root folders. One for backend project files and the other fro the frontend project files
 ---
 ## General Instructions
