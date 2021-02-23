@@ -16,7 +16,7 @@ var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 
 // set host
-var host = process.env.HOST;
+var host = process.env.HOST || '0.0.0.0';
 
 /**
  * Create HTTP server.
