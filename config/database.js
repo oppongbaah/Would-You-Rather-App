@@ -7,11 +7,11 @@ mongoose.connect(conString,
  { useNewUrlParser: true, useUnifiedTopology: true });
 
 con.on('connected', function() {
-    console.log('database is connected successfully');
+    console.log('database is connected successfully!');
 });
 
 con.on('disconnected', function(){
-    console.log('database is disconnected successfully');
+    console.log('database is disconnected successfully!');
 })
 
 con.on('error', console.error.bind(console, 'connection error:'));
