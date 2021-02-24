@@ -28,7 +28,7 @@ app.use('/users', usersRouter);
 app.use('/questions', questionsRouter);
 // Set this app if you are adding a react frontend.
 // Just add the build folder to the root directory
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '../build')));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
