@@ -39,7 +39,7 @@ const fetchAll =  (req, res) => {
 const fetchOne = async (req, res) => {
   try {
       const user = await Users.findById(req.params._id).exec();
-      res.send(user);
+      res.json(user);
   }
   catch (error) {
       res.json({error, message: "Kindly Check the id parameter"});
