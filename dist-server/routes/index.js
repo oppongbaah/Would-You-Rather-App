@@ -2,6 +2,8 @@
 
 var express = require('express');
 
+var path = require('path');
+
 var router = express.Router();
 
 var seed = require('../../controllers/seed');
@@ -23,13 +25,14 @@ router.get('/', function (req, res, next) {
 /* GET root route. */
 
 router.get('/', function (req, res, next) {
-  // get the username using the decrypted authedUser which is the userId
-  var decryptedCookie = zip.decrypt(req.cookies.authedUser);
-  globalCtrl.getUsername(decryptedCookie).then(function (data) {
-    var name = data[0].username;
-    res.send("Welcome ".concat(name, ". Great to have you here"));
-  })["catch"](function (err) {
-    res.send("Username could not be retrieved");
-  });
+  //  react build integration
+  res.sendFile(path.join(__dirname, 'build', 'index.html')); // // get the username using the decrypted authedUser which is the userId
+  // let decryptedCookie = zip.decrypt(req.cookies.authedUser);
+  // globalCtrl.getUsername(decryptedCookie)
+  // .then(data => {
+  //   const name = data[0].username;
+  //   res.send(`Welcome ${name}. Great to have you here`)
+  // })
+  // .catch((err) => {res.send("Username could not be retrieved")})
 });
 module.exports = router;
