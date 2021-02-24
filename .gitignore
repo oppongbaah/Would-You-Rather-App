@@ -3,7 +3,6 @@
 *.bin
 **/node_modules
 .env
-**/src-server
 
 # Compiled Object files
 *.slo
