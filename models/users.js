@@ -19,6 +19,10 @@ const userSchema = new Schema({
         type: String,
         required: false
     },
+    answers: {
+      type: Object,
+      require: false
+    },
     questions: {
         type: Array,
         required: false
