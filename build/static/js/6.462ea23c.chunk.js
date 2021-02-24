@@ -1,0 +1,2 @@
+(this.webpackJsonptwitter=this.webpackJsonptwitter||[]).push([[6],{78:function(t,e,n){"use strict";n.r(e);var r=n(20),c=n(21),i=n(25),a=n(24),u=n(0),s=n(3),o=function(t){Object(i.a)(n,t);var e=Object(a.a)(n);function n(){return Object(r.a)(this,n),e.apply(this,arguments)}return Object(c.a)(n,[{key:"render",value:function(){return Object(s.jsx)("h1",{children:" View Poll "})}}]),n}(u.Component);e.default=o}}]);
+//# sourceMappingURL=6.462ea23c.chunk.js.map

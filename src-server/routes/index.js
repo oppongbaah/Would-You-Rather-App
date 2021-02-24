@@ -23,6 +23,8 @@ router.get('/', (req, res, next) => {
   .then(data => {
     const name = data[0].username;
     res.send(`Welcome ${name}. Great to have you here`)
+    //  react build integration
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
   })
   .catch((err) => {res.send("Username could not be retrieved")})
 });

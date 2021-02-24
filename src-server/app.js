@@ -13,6 +13,10 @@ require('dotenv').config();
 // connect to the mongod database
 require('./config/database.js');
 
+// Set this app if you are adding a react frontend.
+// Just add the build folder to the root directory
+app.use(express.static(path.join(      __dirname, 'build')));
+
 const app = express();
 
 app.use(logger('dev'));
