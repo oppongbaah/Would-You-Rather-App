@@ -1,6 +1,6 @@
 const Users = require('../models/users');
 
-const saveUser = async (req, res) => {
+const save = async (req, res) => {
     try {
         // check if the userId does not exist in the database before signup
         const IDs = await Users.find({}, '_id', (err, ids) => {
@@ -26,6 +26,28 @@ const saveUser = async (req, res) => {
     }
 }
 
+const fetchAll =  (req, res) => {
+    Users.find({}, (err, result) => {
+        if(err) {
+            return res.send(err);
+        }
+
+        return res.json(result);
+    })
+}
+
+const fetchOne = async (req, res) => {
+  try {
+      const user = await Users.findById(req.params._id).exec();
+      res.send(user);
+  }
+  catch (error) {
+      res.json({error, message: "Kindly Check the id parameter"});
+  }
+}
+
 module.exports = {
-  saveUser: saveUser
+  save: save,
+  fetchAll: fetchAll,
+  fetchOne: fetchOne
 }
