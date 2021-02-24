@@ -19,7 +19,8 @@ router.get('/', (req, res, next) => {
 /* GET root route. */
 router.get('/', (req, res, next) => {
   //  react build integration
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  console.log(path.join(__dirname, '../../build'))
+  res.sendFile(path.join(__dirname, '../../build', 'index.html'));
   // // get the username using the decrypted authedUser which is the userId
   // let decryptedCookie = zip.decrypt(req.cookies.authedUser);
   // globalCtrl.getUsername(decryptedCookie)
