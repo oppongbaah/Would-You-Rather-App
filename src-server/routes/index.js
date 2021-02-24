@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 const seed = require('../../controllers/seed');
 const globalCtrl = require('../../controllers/global');
@@ -17,16 +18,16 @@ router.get('/', (req, res, next) => {
 
 /* GET root route. */
 router.get('/', (req, res, next) => {
-  // get the username using the decrypted authedUser which is the userId
-  let decryptedCookie = zip.decrypt(req.cookies.authedUser);
-  globalCtrl.getUsername(decryptedCookie)
-  .then(data => {
-    const name = data[0].username;
-    res.send(`Welcome ${name}. Great to have you here`)
-    //  react build integration
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  })
-  .catch((err) => {res.send("Username could not be retrieved")})
+  //  react build integration
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  // // get the username using the decrypted authedUser which is the userId
+  // let decryptedCookie = zip.decrypt(req.cookies.authedUser);
+  // globalCtrl.getUsername(decryptedCookie)
+  // .then(data => {
+  //   const name = data[0].username;
+  //   res.send(`Welcome ${name}. Great to have you here`)
+  // })
+  // .catch((err) => {res.send("Username could not be retrieved")})
 });
 
 module.exports = router;
