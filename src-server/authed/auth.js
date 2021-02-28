@@ -9,7 +9,10 @@ module.exports = {
         const [userId, password] = bufferedData.toString().split(":");
         // check if username and password are not empty
         if (!userId || !password) {
-            res.send("username or password cannot be empty. Try again");
+          res.status(401).json({
+            message: "username and password do not match",
+            status: 401
+          });
         }
         else {
             // use the username and check if username and password actually exist in the database
@@ -18,24 +21,37 @@ module.exports = {
                 if (err) {
                     // retry
                     res.setHeader("WWW-Authenticate", "Basic");
-                    res.status(401).send(err);
+                    res.status(401).json({
+                      message: err,
+                      status: 401
+                    });
                 }
 
                 if (user.length){
                     if(userId === user[0]._id && password === user[0].password) {
                         // encrypt the data before you save it as a cookie
                         const encryptedCookie = zip.encrpyt(userId);
-                        // store a cookie for the username
-                        res.cookie('authedUser', encryptedCookie, { maxAge: (60*60*1000), httpOnly: true});
-                        return res.status(200).send(`Welcome ${user[0].username}`);
+
+                        return res.status(200).json({
+                            message: `Welcome ${user[0].username}`,
+                            name: userId,
+                            status: 200,
+                            token: encryptedCookie
+                        });
                     }
                     else {
                         res.setHeader("WWW-Authenticate", "Basic");
-                        res.status(401).send("username and password do not match");
+                        res.status(401).json({
+                          message: "username and password do not match",
+                          status: 401
+                        });
                     }
                 }
                 else {
-                    res.send("username and password do not match");
+                  res.status(401).json({
+                    message: "username and password do not match",
+                    status: 401
+                  });
                 }
             });
         }
