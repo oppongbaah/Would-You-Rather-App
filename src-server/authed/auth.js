@@ -31,6 +31,8 @@ module.exports = {
                     if(userId === user[0]._id && password === user[0].password) {
                         // encrypt the data before you save it as a cookie
                         const encryptedCookie = zip.encrpyt(userId);
+                        // set the session for this user
+                        req.session.token = encryptedCookie;
 
                         return res.status(200).json({
                             message: `Welcome ${user[0].username}`,
