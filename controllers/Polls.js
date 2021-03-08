@@ -16,7 +16,7 @@ module.exports = {
     try {
       await Poll.findById(req.params._id).exec()
       .then((poll) => {
-        res.status(200).json(poll);
+        res.json(poll);
       })
       .catch((err) => {res.status(404).send("Page Not Found"+err)})
     }
@@ -79,20 +79,21 @@ module.exports = {
       const pid = req.params.pid;
       const uid = req.params.uid;
       const option = req.query.option;
+
       const altOption = option === "optionOne" ? "optionTwo" : "optionOne";
       // add username to the votes on the question object
       await Poll.findById(pid).exec()
       .then(async (poll) => {
-        for(let vote of poll[option].votes) {
-          if (vote === uid) {
-            res.status(401).send("You have already voted");
-            return;
-          }
-          else {
-            poll[option].votes.push(uid);
-          }
+
+        if(poll[option].votes.includes(uid) ||
+        poll[altOption].votes.includes(uid)) {
+          res.status(401).send("You have already voted");
+          return;
         }
-        // save the updated poll
+        else {
+          poll[option].votes.push(uid);
+        }
+
         const newPoll = new Poll(poll);
         await newPoll.save()
         .then(async () => {
@@ -106,7 +107,7 @@ module.exports = {
             const newUser = new User(user);
             await newUser.save()
             .then(() => {
-              res.status(200).send(`Wow! You just voted for ${option}`);
+              res.status(200).json(poll);
             })
             .catch((err) => {res.status(404).send("Page Not Found")+err})
           })
