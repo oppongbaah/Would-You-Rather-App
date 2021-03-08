@@ -3,7 +3,7 @@
       "author": "sarahedo",
       "timestamp": 1467166872634,
       "optionOne": {
-        "votes": ["sarahedo"],
+        "votes": [],
         "text": "have horrible short term memory"
       },
       "optionTwo": {
@@ -19,7 +19,7 @@
         "text": "become a superhero"
       },
       "optionTwo": {
-        "votes": ["johndoe", "sarahedo"],
+        "votes": [],
         "text": "become a supervillain"
       }
     },
@@ -43,7 +43,7 @@
         "text": "be a front-end developer"
       },
       "optionTwo": {
-        "votes": ["sarahedo"],
+        "votes": [],
         "text": "be a back-end developer"
       }
     },
@@ -51,11 +51,11 @@
       "author": "tylermcginnis",
       "timestamp": 1489579767190,
       "optionOne": {
-        "votes": ["tylermcginnis"],
+        "votes": [],
         "text": "find $50 yourself"
       },
       "optionTwo": {
-        "votes": ["johndoe"],
+        "votes": [],
         "text": "have your best friend find $500"
       }
     },
@@ -63,11 +63,11 @@
       "author": "johndoe",
       "timestamp": 1493579767190,
       "optionOne": {
-        "votes": ["johndoe"],
+        "votes": [],
         "text": "write JavaScript"
       },
       "optionTwo": {
-        "votes": ["tylermcginnis"],
+        "votes": [],
         "text": "write Swift"
       }
     }

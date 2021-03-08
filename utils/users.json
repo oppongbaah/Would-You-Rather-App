@@ -3,7 +3,7 @@
     "_id": "sarahedo",
     "username": "Sarah Edo",
     "imageURL": "sarah.jpeg",
-    "answers" : {},
+    "answers" : [],
     "questions": [],
     "password": "2020"
   },
@@ -11,14 +11,14 @@
     "_id": "tylermcginnis",
     "username": "Tyler McGinnis",
     "imageURL": "isaac.png",
-    "answers": {},
+    "answers": [],
     "questions": [],
     "password": "2021"
   },
   {
     "_id": "johndoe",
     "username": "John Doe",
-    "answers": {},
+    "answers": [],
     "questions": [],
     "password": "2022"
   }
