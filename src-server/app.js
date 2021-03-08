@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const questionsRouter = require('./routes/questions');
+const pollRouter = require('./routes/poll');
 
 require('dotenv').config();
 // connect to the mongod database
@@ -25,7 +25,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/questions', questionsRouter);
+app.use('/polls', pollRouter);
 // Set this app if you are adding a react frontend.
 // Just add the build folder to the root directory
 app.use(express.static(path.join(__dirname, '../build')));

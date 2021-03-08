@@ -29,7 +29,10 @@ module.exports = {
 
 
     if (!userId || !password) {
-      res.send("username or password cannot be empty. Try again");
+      res.status(401).json({
+        message: "username and password do not match",
+        status: 401
+      });
     } else {
       // use the username and check if username and password actually exist in the database
       Users.find({
@@ -39,25 +42,34 @@ module.exports = {
         if (err) {
           // retry
           res.setHeader("WWW-Authenticate", "Basic");
-          res.status(401).send(err);
+          res.status(401).json({
+            message: err,
+            status: 401
+          });
         }
 
         if (user.length) {
           if (userId === user[0]._id && password === user[0].password) {
             // encrypt the data before you save it as a cookie
-            var encryptedCookie = zip.encrpyt(userId); // store a cookie for the username
-
-            res.cookie('authedUser', encryptedCookie, {
-              maxAge: 60 * 60 * 1000,
-              httpOnly: true
+            var encryptedCookie = zip.encrpyt(userId);
+            return res.status(200).json({
+              message: "Welcome ".concat(user[0].username),
+              name: userId,
+              status: 200,
+              token: encryptedCookie
             });
-            return res.status(200).send("Welcome ".concat(user[0].username));
           } else {
             res.setHeader("WWW-Authenticate", "Basic");
-            res.status(401).send("username and password do not match");
+            res.status(401).json({
+              message: "username and password do not match",
+              status: 401
+            });
           }
         } else {
-          res.send("username and password do not match");
+          res.status(401).json({
+            message: "username and password do not match",
+            status: 401
+          });
         }
       });
     }

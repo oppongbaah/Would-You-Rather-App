@@ -18,7 +18,7 @@ var indexRouter = require('./routes/index');
 
 var usersRouter = require('./routes/users');
 
-var questionsRouter = require('./routes/questions');
+var pollRouter = require('./routes/poll');
 
 require('dotenv').config(); // connect to the mongod database
 
@@ -35,10 +35,10 @@ app.use(cookieParser());
 app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/questions', questionsRouter); // Set this app if you are adding a react frontend.
+app.use('/polls', pollRouter); // Set this app if you are adding a react frontend.
 // Just add the build folder to the root directory
 
-app.use(express["static"](path.join(__dirname, 'build'))); // catch 404 and forward to error handler
+app.use(express["static"](path.join(__dirname, '../build'))); // catch 404 and forward to error handler
 
 app.use(function (req, res, next) {
   next(createError(404));

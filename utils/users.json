@@ -2,36 +2,24 @@
   {
     "_id": "sarahedo",
     "username": "Sarah Edo",
-    "imageURL": "isaac.png",
-    "answers" : {
-      "8xf0y6ziyjabvozdd253nd": "optionOne",
-      "6ni6ok3ym7mf1p33lnez": "optionTwo",
-      "am8ehyc8byjqgar0jgpub9": "optionTwo",
-      "loxhs1bqm25b708cmbf3g": "optionTwo"
-    },
-    "questions": ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
+    "imageURL": "sarah.jpeg",
+    "answers" : {},
+    "questions": [],
     "password": "2020"
   },
   {
     "_id": "tylermcginnis",
     "username": "Tyler McGinnis",
     "imageURL": "isaac.png",
-    "answers": {
-      "vthrdm985a262al8qx3do": "optionOne",
-      "xj352vofupe1dqz9emx13r": "optionTwo"
-    },
-    "questions": ["loxhs1bqm25b708cmbf3g", "vthrdm985a262al8qx3do"],
+    "answers": {},
+    "questions": [],
     "password": "2021"
   },
   {
     "_id": "johndoe",
     "username": "John Doe",
-    "answers": {
-      "xj352vofupe1dqz9emx13r": "optionOne",
-      "vthrdm985a262al8qx3do": "optionTwo",
-      "6ni6ok3ym7mf1p33lnez": "optionTwo"
-    },
-    "questions": ["6ni6ok3ym7mf1p33lnez", "xj352vofupe1dqz9emx13r"],
+    "answers": {},
+    "questions": [],
     "password": "2022"
   }
 ]

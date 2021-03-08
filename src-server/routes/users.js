@@ -26,7 +26,7 @@ router.use('/login', cors(), (req, res) => {
     if(!req.headers.authorization){
       res.setHeader("WWW-Authenticate", "Basic");
       res.status(401).json({
-        message: "Login To Proceed",
+        message: "You are not authorised to visit this page. Contact your administrator",
         status: 401
       });
       return;
@@ -38,8 +38,8 @@ router.use('/login', cors(), (req, res) => {
 })
 
 router.get('/fetch-all', (req, res, next) => {
-    seedCtrl.users();
-    usersCtrl.fetchAll(req, res);
+  seedCtrl.users();
+  usersCtrl.fetchAll(req, res);
 })
 
 router.get('/fetch/:_id', (req, res, next) => {
