@@ -1,0 +1,2 @@
+(this.webpackJsonptwitter=this.webpackJsonptwitter||[]).push([[14],{130:function(e,t,r){"use strict";r.r(t);r(1);var s=r(6),n=r(24),a=r(2),c=new n.a;t.default=function(e){return Object(a.jsxs)(a.Fragment,{children:[c.get("authedUser")&&Object(a.jsx)(a.Fragment,{children:Object(a.jsx)("h2",{className:"center",children:" Leaderboard "})}),!c.get("authedUser")&&Object(a.jsx)(s.a,{to:{pathname:"/users/login",state:{desc:"sign in required",redirected:!0}}})]})}}}]);
+//# sourceMappingURL=14.09c75e53.chunk.js.map
