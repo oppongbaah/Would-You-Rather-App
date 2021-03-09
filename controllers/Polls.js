@@ -35,11 +35,14 @@ module.exports = {
           const newUser = new User(user);
           await newUser.save()
           .then(() => {
-            res.status(200).send("Question added successfully");
+            res.status(200).json({
+              question: poll,
+              message: "Question added successfully"
+            });
           })
-          .catch((err) => {res.status(404).send("Page Not Found 1")+err})
+          .catch((err) => console.log(err))
       })
-      .catch((err) => {res.status(404).send("Page Not Found 2")+err})
+      .catch((err) => console.log(err))
     }
     catch (err) {
       res.status(500).send("Internal Server Error. (Backend Error)"+err);
@@ -100,9 +103,7 @@ module.exports = {
           // add the answer = [qid: option] to the users profile
           await User.findById(uid).exec()
           .then(async (user) => {
-            user.answers = {
-              [pid]: uid
-            }
+            user.answers.push({[pid]: option})
             // save the updated user profile
             const newUser = new User(user);
             await newUser.save()
@@ -111,7 +112,7 @@ module.exports = {
             })
             .catch((err) => {res.status(404).send("Page Not Found")+err})
           })
-          .catch((err) => {res.status(404).send("Page Not Found")+err})
+          .catch((err) => {console.log(err)})
         })
         .catch((err) => {res.status(404).send("Page Not Found")+err})
       })
